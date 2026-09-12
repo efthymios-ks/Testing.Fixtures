@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<RootNamespace>Testing.Fixtures</RootNamespace>
+		<AssemblyName>Testing.Fixtures</AssemblyName>
+		<!-- References xunit for IAsyncLifetime and ITestOutputHelper; it is a library, not a test project. -->
+		<IsTestProject>false</IsTestProject>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
+		<PackageReference Include="Microsoft.Data.SqlClient" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+		<PackageReference Include="xunit" />
+		<!-- Testcontainers pulls SSH.NET 2025.1.0, which carries GHSA-q939-rpr3-3284. -->
+		<PackageReference Include="SSH.NET" />
+		<PackageReference Include="StackExchange.Redis" />
+		<PackageReference Include="Testcontainers.MsSql" />
+		<PackageReference Include="Testcontainers.Redis" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="Testing.Fixtures.Tests" />
+	</ItemGroup>
+</Project>
